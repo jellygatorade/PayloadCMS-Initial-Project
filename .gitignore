@@ -1,5 +1,7 @@
 *.svg
+*.ico
 /media
+/assets
 
 ### Node ###
 # Logs

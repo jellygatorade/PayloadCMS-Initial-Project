@@ -11,6 +11,9 @@ export default buildConfig({
   serverURL: "http://localhost:3000",
   admin: {
     user: Users.slug,
+    meta: {
+      favicon: "./assets/ncma-circular-logomark-orange.svg",
+    },
     components: {
       graphics: {
         Icon: CustomIcon,

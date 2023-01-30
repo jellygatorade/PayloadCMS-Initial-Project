@@ -1,13 +1,17 @@
-const express = require('express');
-const payload = require('payload');
+const express = require("express");
+const path = require("path");
+const payload = require("payload");
 
-require('dotenv').config();
+require("dotenv").config();
 const app = express();
 
 // Redirect root to Admin panel
-app.get('/', (_, res) => {
-  res.redirect('/admin');
+app.get("/", (_, res) => {
+  res.redirect("/admin");
 });
+
+// Note: Anything in this assets folder will be publicly available when your app is hosted online.
+app.use("/assets", express.static(path.resolve(__dirname, "./assets")));
 
 // Initialize Payload
 payload.init({

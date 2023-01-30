@@ -1,4 +1,4 @@
-import CustomCellBasic from "../components/CustomCellBasic";
+import ImageTitleCell from "../components/ImageTitleCell";
 
 const Polls = {
   slug: "polls",
@@ -83,7 +83,7 @@ const Polls = {
       relationTo: ["artworks"],
       admin: {
         components: {
-          Cell: CustomCellBasic,
+          Cell: ImageTitleCell,
         },
       },
     },
@@ -91,6 +91,11 @@ const Polls = {
       name: "competitorTwo",
       type: "relationship",
       relationTo: ["artworks"],
+      admin: {
+        components: {
+          Cell: ImageTitleCell,
+        },
+      },
     },
   ],
 };

@@ -1,0 +1,5 @@
+.env file contains:
+
+MONGODB_URI=
+PAYLOAD_SECRET=
+PAYLOAD_PUBLIC_SERVER_URL=http://localhost:3000

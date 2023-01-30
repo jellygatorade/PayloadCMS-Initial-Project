@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 // Populate Data In Cell Component
 // https://discordapp.com/channels/967097582721572934/1041362545501548624/1041362545501548624
 
-const baseUrl = process.env.PAYLOAD_PUBLIC_SERVER;
+const baseUrl = process.env.PAYLOAD_PUBLIC_SERVER_URL;
 
 const imageStyle1 = { borderRadius: "100%" };
 const imageStyle2 = { borderRadius: "100%", boxShadow: "0px 0px 1px black" };
@@ -17,7 +17,7 @@ const ImageCell = (props) => {
   if (!cellData) return null;
 
   useEffect(() => {
-    fetch(`http://${baseUrl}/api/${collection.slug}/${rowData.id}/?depth=1`)
+    fetch(`${baseUrl}/api/${collection.slug}/${rowData.id}/?depth=1`)
       .then((data) => data.json())
       .then((object) => setItem(object));
   }, []);

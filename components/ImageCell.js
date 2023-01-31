@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import { useListRelationships } from "/node_modules/payload/dist/admin/components/views/collections/List/RelationshipProvider";
+
 // Following Discord thread
 // Populate Data In Cell Component
 // https://discordapp.com/channels/967097582721572934/1041362545501548624/1041362545501548624
@@ -18,21 +20,22 @@ const size = "50";
 
 const ImageCell = (props) => {
   const { field, colIndex, collection, cellData, rowData } = props;
-  const [item, setItem] = useState();
 
   if (!cellData) return null;
+
+  const [fetchItem, setFetchItem] = useState(); // using fetch
 
   useEffect(() => {
     fetch(`${baseUrl}/api/${collection.slug}/${rowData.id}/?depth=1`)
       .then((data) => data.json())
-      .then((object) => setItem(object));
+      .then((object) => setFetchItem(object));
   }, []);
 
   return (
     <>
-      {item?.image?.sizes?.thumbnail?.url && (
+      {fetchItem?.image?.sizes?.thumbnail?.url && (
         <img
-          src={item.image.sizes.thumbnail.url}
+          src={fetchItem.image.sizes.thumbnail.url}
           style={imageStyle}
           // Setting height and widith this way increases height of the parent row
           height={size}
@@ -41,6 +44,34 @@ const ImageCell = (props) => {
       )}
     </>
   );
+
+  // Using the RelationshipProvider instead as per this thread
+  // https://discordapp.com/channels/967097582721572934/1042513404390285392
+
+  // const { getRelationships, documents } = useListRelationships();
+
+  // useEffect(() => {
+  //   getRelationships([
+  //     {
+  //       value: cellData,
+  //       relationTo: field.relationTo,
+  //     },
+  //   ]);
+  // }, [getRelationships]);
+
+  // return (
+  //   <>
+  //     {documents?.[field.relationTo]?.[cellData]?.sizes?.thumbnail?.url && (
+  //       <img
+  //         src={documents[field.relationTo][cellData].sizes.thumbnail.url}
+  //         style={imageStyle}
+  //         // Setting height and widith this way increases height of the parent row
+  //         height={size}
+  //         width={size}
+  //       ></img>
+  //     )}
+  //   </>
+  // );
 };
 
 export default ImageCell;

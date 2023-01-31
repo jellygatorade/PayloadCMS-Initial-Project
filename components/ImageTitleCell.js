@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 //import { Props } from 'payload/components/views/Cell';
 //import './styles.scss';
 
+// Custom component to replace Relationship field Cell component for List views
+// This is the original component in the Payload repo being replaced
+// https://github.com/payloadcms/payload/blob/master/src/admin/components/views/collections/List/Cell/field-types/Relationship/index.tsx
+
 const baseUrl = process.env.PAYLOAD_PUBLIC_SERVER_URL;
 
 const parentStyle = {

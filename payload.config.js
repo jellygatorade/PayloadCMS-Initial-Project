@@ -12,7 +12,7 @@ export default buildConfig({
   admin: {
     user: Users.slug,
     meta: {
-      favicon: "./assets/ncma-circular-logomark-orange.svg",
+      favicon: "/assets/ncma-circular-logomark-orange.svg",
     },
     components: {
       graphics: {

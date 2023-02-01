@@ -1,0 +1,29 @@
+@import "~payload/scss";
+
+.parent {
+  width: 0px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  /* need import statement to use Payload SCSS variables */
+  @media (max-width: $breakpoint-m-width) {
+    align-items: flex-start;
+  }
+}
+
+.div {
+  width: 52px;
+}
+
+.thumbnail {
+  display: inline-block;
+  vertical-align: bottom;
+  border-radius: 5%;
+
+  max-width: 52px;
+
+  margin-bottom: $baseline; /* need import statement to use Payload SCSS variables */
+}

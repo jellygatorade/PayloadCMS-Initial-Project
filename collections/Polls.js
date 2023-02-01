@@ -1,4 +1,5 @@
 import ImageTitleCell from "../components/ImageTitleCell";
+import ThumbnailListener from "../components/ThumbnailListener";
 
 const Polls = {
   slug: "polls",
@@ -78,24 +79,56 @@ const Polls = {
       },
     },
     {
-      name: "competitorOne",
-      type: "relationship",
-      relationTo: ["artworks"],
-      admin: {
-        components: {
-          Cell: ImageTitleCell,
+      type: "row",
+      fields: [
+        {
+          name: "competitorOne",
+          type: "relationship",
+          relationTo: ["artworks"],
+          admin: {
+            components: {
+              Cell: ImageTitleCell,
+            },
+            width: "80%",
+          },
         },
-      },
+        {
+          name: "competitorOneUI",
+          type: "ui",
+          label: "competitorOne",
+          admin: {
+            components: {
+              Field: ThumbnailListener,
+            },
+          },
+        },
+      ],
     },
     {
-      name: "competitorTwo",
-      type: "relationship",
-      relationTo: ["artworks"],
-      admin: {
-        components: {
-          Cell: ImageTitleCell,
+      type: "row",
+      fields: [
+        {
+          name: "competitorTwo",
+          type: "relationship",
+          relationTo: ["artworks"],
+          admin: {
+            components: {
+              Cell: ImageTitleCell,
+            },
+            width: "80%",
+          },
         },
-      },
+        {
+          name: "competitorTwoUI",
+          type: "ui",
+          label: "competitorTwo",
+          admin: {
+            components: {
+              Field: ThumbnailListener,
+            },
+          },
+        },
+      ],
     },
   ],
 };

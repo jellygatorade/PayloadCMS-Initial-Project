@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { useListRelationships } from "/node_modules/payload/dist/admin/components/views/collections/List/RelationshipProvider";
+import { useListRelationships } from "../node_modules/payload/dist/admin/components/views/collections/List/RelationshipProvider";
 
 // Following Discord thread
 // Populate Data In Cell Component
